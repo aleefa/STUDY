@@ -36,13 +36,11 @@ function showTasks() {
 }
 
 addTask("Learn JavaScript");
-addTask("Build a to-do app");
-addTask("Read a book");
-
+addTask("Build a ToDo App");
 showTasks();
-
-markDone(1);
+ 
+markDone(0);
 showTasks();
-
-removeTask(0);
+ 
+removeTask(1);
 showTasks();
