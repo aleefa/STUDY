@@ -1,35 +1,15 @@
-<!DOCTYPE html>
-<html>
-<head>
-  <title>Digital Clock</title>
-  <style>
-    #clock {
-      font-size: 2em;
-      font-weight: bold;
-      font-family: monospace;
-    }
-  </style>
-</head>
-<body>
-  <div id="clock"></div>
+function logTime() {
+  const now = new Date();
+  let hours = now.getHours();
+  let minutes = now.getMinutes();
+  let seconds = now.getSeconds();
 
-  <script>
-    function updateClock() {
-      let now = new Date(); // get current time
-      let hours = String(now.getHours()).padStart(2, '0');
-      let minutes = String(now.getMinutes()).padStart(2, '0');
-      let seconds = String(now.getSeconds()).padStart(2, '0');
-      
-      // Format time as HH:MM:SS
-      let timeString = `${hours}:${minutes}:${seconds}`;
-      
-      // Update the div
-      document.getElementById("clock").textContent = timeString;
-    }
+  hours = hours < 10 ? '0' + hours : hours;
+  minutes = minutes < 10 ? '0' + minutes : minutes;
+  seconds = seconds < 10 ? '0' + seconds : seconds;
 
-    // Update clock immediately, then every second
-    updateClock();
-    setInterval(updateClock, 1000);
-  </script>
-</body>
-</html>
+  console.log(`${hours}:${minutes}:${seconds}`);
+}
+
+logTime();
+setInterval(logTime, 1000);
